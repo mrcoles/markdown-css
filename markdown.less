@@ -1,0 +1,175 @@
+
+
+.markdown {
+    @font-size: 14px;
+    @line-height: 20px;
+    @color: #333;
+    @four-space: 36px;
+    @ul-tick: "*";
+    @strong-char: "__";
+    @em-char: "*";
+
+    &, h1, h2, h3, h4, h5, h6, pre, code, blockquote, em, strong, code {
+        font-size: @font-size;
+        line-height: @line-height;
+        font-weight: normal;
+        font-family: consolas,monaco,courier,"courier new",fixed-width;
+        color: @color;
+    }
+
+    h1, h2, h3, h4, h5, h6, pre, code, blockquote {
+        float: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, p, ul, ol, pre, blockquote {
+        margin-bottom: @line-height;
+    }
+
+    h1 {
+        position: relative;
+        float: left; // float to make width of text
+        padding-bottom: @line-height;
+        margin-bottom: @line-height;
+        overflow: hidden;
+
+        &:after {
+            // 100 characters wide max
+            content: "====================================================================================================";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    // siblings after h1 clear it
+    // this can fail if just plain text is put after an h1
+    h1 + * { clear: left; }
+
+    h2, h3, h4, h5, h6 {
+        position: relative;
+        margin-bottom: @line-height;
+    }
+
+    h2:before,
+    h3:before,
+    h4:before,
+    h5:before,
+    h6:before {
+        content: "## ";
+        display: inline;
+    }
+    h3:before {
+        content: "### ";
+    }
+    h4:before {
+        content: "#### ";
+    }
+    h5:before {
+        content: "##### ";
+    }
+    h6:before {
+        content: "###### ";
+    }
+
+    li {
+        position: relative;
+        display: block;
+        padding-left: @four-space;
+    }
+
+    li:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    ul>li:after {
+        content: @ul-tick;
+    }
+    ol>li:after {
+        content: "1.";
+    }
+
+    pre {
+        margin-left: @four-space;
+    }
+    blockquote {
+        position: relative;
+        padding-left: @four-space/2;
+        overflow: hidden;
+
+        &:after {
+            // 100 lines max
+            content: ">\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>";
+            white-space: pre;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: @font-size;
+            line-height: @line-height;
+        }
+    }
+
+    strong:before, strong:after {
+        content: @strong-char;
+        display: inline;
+    }
+
+    em:before, em:after {
+        content: @em-char;
+        display: inline;
+    }
+
+
+    a {
+        text-decoration: none;
+    }
+    a:before {
+        content: "[";
+        display: inline;
+        color: @color;
+    }
+    a:after {
+        content: ~'"](" attr(href) ")"';
+        display: inline;
+        color: @color;
+    }
+
+    code { font-weight: 100; }
+
+    hr {
+        position: relative;
+        height: @line-height;
+        font-size: 0;
+        line-height: 0;
+        overflow: hidden;
+        border: 0;
+        margin-bottom: @line-height;
+
+        &:after {
+            // 100 characters wide max
+            content: "----------------------------------------------------------------------------------------------------";
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: @font-size;
+            line-height: @line-height;
+            word-wrap: break-word;
+        }
+    }
+
+    // only opera support before and after with img :(
+    // img {
+    //     display: inline-block;
+    //     &:before {
+    //         content: ~'"![" attr(alt)';
+    //         display: inline-block;
+    //     }
+    //     &:after {
+    //         content: ~'"](" attr(src) ")"';
+    //         display: inline-block;
+    //     }
+    // }
+}

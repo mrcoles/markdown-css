@@ -3,58 +3,110 @@
     <head>
         <meta charset=utf-8>
         <title></title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="markdown.css">
+        <link href="style.css" rel="stylesheet">
+        <link href="standard.less" rel="stylesheet/less" type="text/css">
+        <link href="markdown.less" rel="stylesheet/less" type="text/css">
+        <script src="less-1.3.3.min.js"></script>
     </head>
     <body>
         <div id="content-top">
             <div class="content-inner">
-                <h1>Mark me down for markdown</h1>
-                <p>A peverse way to make your HTML look like markdown, via CSS.</p>
+                <a class="right" href="http://mrcoles.com">mrcoles.com</a>
+                <h1>Markdown.css</h1>
                 <p>
-                    Can’t get enough of raw markdown? Me either.
-                    Despite looking like raw markdown, the text below actually comes from well-formed HTML. The <code>markdown.css</code> file makes regular markup look like markdown.</p>
+                    A peverse way to make your HTML look like
+                    <a href="http://daringfireball.net/projects/markdown/">markdown</a>,
+                    purely via CSS.
+                </p>
+                <p>
+                    Can’t get enough of raw markdown? Me neither.
+                    Despite looking like raw markdown, the text below actually comes from well-formed HTML.
+                    Just add <a href="markdown.css"><code>markdown.css</code></a> to your page and anything inside the class <code>markdown</code> will get “marked down.”
+                </p>
             </div>
         </div>
         <div id="content-main">
             <div class="content-inner">
+                <a id="toggle1" class="right" href="#">→ toggle markdown CSS ←</a>
                 <h1>The example</h1>
-                <div class="markdown">
+                <div id="md-example" class="markdown">
                     <h1>The markdown example</h1>
-                    <p><a href="#">link1</a></p>
-                    <p>[link1](<a href="thing.html">thing.html</a>)</p>
-                    <h3>How do lists look?</h3>
+
+                    <p>A <strong>strong tag</strong> and an <em>em tag</em> render like so.</p>
+                    <p>How about a link to <a href="http://mrcoles.com">my site</a>?</p>
+
+                    <h2>H2 header</h2>
+
+                    <h3>Lists</h3>
                     <ul>
                         <li>they look like this</li>
-                        <li>basically, just like how you would format them in pure markdown. nicely formatted, pure markdown.</li>
+                        <li>it’s how you’d format them in pure markdown, if you took the time to indent when it wrapped to a new line.</li>
                     </ul>
-                    <p>But what about numbered lists?</p>
+
+                    <h3>Ordered lists</h3>
                     <ol>
                         <li>here’s one line from a numbered list</li>
-                        <li>here’s another line from a numbered list</li>
-                        <li>and one more</li>
+                        <li>here’s another</li>
+                        <li>in markdown, the actual numbers don’t matter</li>
                     </ol>
 
-                    <h3>How do block quotes look?</h3>
-                    <blockquote>This is a blockquote</blockquote>
+                    <h3>Block quotes</h3>
+                    <blockquote>
+                        This is a blockquote that extends<br>
+                        to multiple lines.<br><br>
+                        With repeating email-style angle brackets.
+                    </blockquote>
 
-                    <h3>How do code blocks look?</h3>
-                    <pre><code>This is a code block</code></pre>
+                    <h3>Code blocks</h3>
+                    <pre><code>(function() {
+    console.log('code blocks indent four spaces');
+})()</code></pre>
 
-                    <h4>Header</h4>
-                    <p>That’s an h4</p>
+                    <h3>Different headers</h3>
 
-                    <h5>Header</h5>
-                    <p>That’s an h5</p>
+                    <h4>h4 header</h4>
+                    <h5>h5 header</h5>
+                    <h6>h6 header</h6>
 
-                    <h6>Header</h6>
-                    <p>That’s an h6</p>
+                    <hr>
 
-                    <p>It will just works!</p>
+                    <p>That’s an hr above. It just works!</p>
+
+                    <p>
+                        However, images will still look like images. Deal with it.
+                    </p>
+
+                    <p>
+                        <img alt="kitten" src="http://placekitten.com/g/180/200">
+                    </p>
+
+                    <p>
+                        Make sure you see what it looks like with regular HTML styling by
+                        <a id="toggle2" href="#toggle" onclick="return false">toggling the markdown CSS</a>.
+                    </p>
+
+                    <p>
+                        Made by <a href="http://mrcoles.com">Peter Coles</a> /<br>
+                        on <a href="https://twitter.com/lethys">twitter</a>
+                    </p>
+
                 </div>
                 <p>Get the <a href="">markdown.css</a> now!</p>
                 <br><br><br><br>
             </div>
         </div>
+
+        <script>
+            (function() {
+               function $(id) { return document.getElementById(id); }
+               function toggle() {
+                   var m = $('md-example');
+                   m.className = (m.className=='markdown'?'standard':'markdown');
+                   return false
+                }
+                $('toggle1').onclick = toggle;
+                $('toggle2').onclick = toggle;
+            })();
+        </script>
     </body>
 </html>

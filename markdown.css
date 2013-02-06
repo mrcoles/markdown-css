@@ -34,44 +34,29 @@
 .markdown h5,
 .markdown h6 {
     position: relative;
-    padding-left: 2em;
     margin-bottom: 20px;
     font-weight: bold;
 }
-.markdown h3 {
-    padding-left: 2.5em;
-}
-.markdown h4 {
-    padding-left: 3em;
-}
-.markdown h5 {
-    padding-left: 3.5em;
-}
-.markdown h6 {
-    padding-left: 4em;
-}
 
-.markdown h2:after,
-.markdown h3:after,
-.markdown h4:after,
-.markdown h5:after,
-.markdown h6:after {
-    content: "##";
-    position: absolute;
-    left: 0;
-    top: 0;
+.markdown h2:before,
+.markdown h3:before,
+.markdown h4:before,
+.markdown h5:before,
+.markdown h6:before {
+    content: "## ";
+    display: inline;
 }
-.markdown h3:after {
-    content: "###";
+.markdown h3:before {
+    content: "### ";
 }
-.markdown h4:after {
-    content: "####";
+.markdown h4:before {
+    content: "#### ";
 }
-.markdown h5:after {
-    content: "#####";
+.markdown h5:before {
+    content: "##### ";
 }
-.markdown h6:after {
-    content: "######";
+.markdown h6:before {
+    content: "###### ";
 }
 
 .markdown li {
