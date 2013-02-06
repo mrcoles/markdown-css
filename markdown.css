@@ -1,5 +1,3 @@
-
-
 .markdown,
 .markdown h1,
 .markdown h2,
@@ -9,78 +7,155 @@
 .markdown h6,
 .markdown pre,
 .markdown code,
-.markdown blockquote
-{
-    font: normal 14px/20px consolas,monaco,courier,"courier new",fixed-width;
-    color: #333;
+.markdown blockquote,
+.markdown em,
+.markdown strong,
+.markdown code {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  font-family: consolas, monaco, courier, "courier new", fixed-width;
+  color: #333333;
 }
-
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+.markdown pre,
+.markdown code,
+.markdown blockquote {
+  float: none;
+  margin: 0;
+  padding: 0;
+}
 .markdown h1,
 .markdown p,
 .markdown ul,
-.markdown ol {
-    margin-bottom: 20px;
+.markdown ol,
+.markdown pre,
+.markdown blockquote {
+  margin-bottom: 20px;
 }
-
 .markdown h1 {
-    border-bottom: 4px double #333;
-    margin-bottom: 16px;
-    font-weight: bold;
+  position: relative;
+  float: left;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
-
+.markdown h1:after {
+  content: "====================================================================================================";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.markdown h1 + * {
+  clear: left;
+}
 .markdown h2,
 .markdown h3,
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-    position: relative;
-    margin-bottom: 20px;
-    font-weight: bold;
+  position: relative;
+  margin-bottom: 20px;
 }
-
 .markdown h2:before,
 .markdown h3:before,
 .markdown h4:before,
 .markdown h5:before,
 .markdown h6:before {
-    content: "## ";
-    display: inline;
+  content: "## ";
+  display: inline;
 }
 .markdown h3:before {
-    content: "### ";
+  content: "### ";
 }
 .markdown h4:before {
-    content: "#### ";
+  content: "#### ";
 }
 .markdown h5:before {
-    content: "##### ";
+  content: "##### ";
 }
 .markdown h6:before {
-    content: "###### ";
+  content: "###### ";
 }
-
 .markdown li {
-    position: relative;
-    display: block;
-    padding-left: 36px;
+  position: relative;
+  display: block;
+  padding-left: 36px;
 }
-
 .markdown li:after {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-
-.markdown ul>li:after {
-    content: "*";
+.markdown ul > li:after {
+  content: "*";
 }
-.markdown ol>li:after {
-    content: "1.";
+.markdown ol > li:after {
+  content: "1.";
 }
-
 .markdown pre {
-    margin-left: 36px;
+  margin-left: 36px;
 }
 .markdown blockquote {
-    margin-left: 36px;
+  position: relative;
+  padding-left: 18px;
+  overflow: hidden;
+}
+.markdown blockquote:after {
+  content: ">\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>";
+  white-space: pre;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+.markdown strong:before,
+.markdown strong:after {
+  content: "__";
+  display: inline;
+}
+.markdown em:before,
+.markdown em:after {
+  content: "*";
+  display: inline;
+}
+.markdown a {
+  text-decoration: none;
+}
+.markdown a:before {
+  content: "[";
+  display: inline;
+  color: #333333;
+}
+.markdown a:after {
+  content: "](" attr(href) ")";
+  display: inline;
+  color: #333333;
+}
+.markdown code {
+  font-weight: 100;
+}
+.markdown hr {
+  position: relative;
+  height: 20px;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  border: 0;
+  margin-bottom: 20px;
+}
+.markdown hr:after {
+  content: "----------------------------------------------------------------------------------------------------";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  line-height: 20px;
+  word-wrap: break-word;
 }
