@@ -1,0 +1,46 @@
+html,body,div,p,ul,ol,h1,h2,h3,h4,h5,h6{margin:0;padding:0}
+
+html {
+    background: #79c3d2;
+}
+
+body {
+    font: normal 14px/20px Helvetica,arial,sans-serif;
+    color: #333;
+}
+
+#content-top {
+    position: relative;
+    padding: 20px 0;
+    background: #262626;
+    color: #eaf2d9;
+    text-shadow: 0 -1px 1px #262626;
+}
+
+#content-main {
+    position: relative;
+    border-top: 2px solid #9fd5df;
+    padding-top: 18px;
+}
+
+.content-inner {
+    position: relative;
+    margin: auto;
+    width: 600px;
+}
+
+.markdown {
+    position: relative;
+    margin: 20px 0;/* -20px;*/
+    padding: 40px;
+    background: #d9eef2;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+h1, h2 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+p { margin-bottom: 20px; }

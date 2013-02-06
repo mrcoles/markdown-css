@@ -1,0 +1,101 @@
+
+
+.markdown,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+.markdown pre,
+.markdown code,
+.markdown blockquote
+{
+    font: normal 14px/20px consolas,monaco,courier,"courier new",fixed-width;
+    color: #333;
+}
+
+.markdown h1,
+.markdown p,
+.markdown ul,
+.markdown ol {
+    margin-bottom: 20px;
+}
+
+.markdown h1 {
+    border-bottom: 4px double #333;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.markdown h3 {
+    padding-left: 2.5em;
+}
+.markdown h4 {
+    padding-left: 3em;
+}
+.markdown h5 {
+    padding-left: 3.5em;
+}
+.markdown h6 {
+    padding-left: 4em;
+}
+
+.markdown h2:after,
+.markdown h3:after,
+.markdown h4:after,
+.markdown h5:after,
+.markdown h6:after {
+    content: "##";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.markdown h3:after {
+    content: "###";
+}
+.markdown h4:after {
+    content: "####";
+}
+.markdown h5:after {
+    content: "#####";
+}
+.markdown h6:after {
+    content: "######";
+}
+
+.markdown li {
+    position: relative;
+    display: block;
+    padding-left: 36px;
+}
+
+.markdown li:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.markdown ul>li:after {
+    content: "*";
+}
+.markdown ol>li:after {
+    content: "1.";
+}
+
+.markdown pre {
+    margin-left: 36px;
+}
+.markdown blockquote {
+    margin-left: 36px;
+}
