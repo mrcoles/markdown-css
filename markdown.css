@@ -29,7 +29,11 @@
 .markdown blockquote,
 .markdown ol,
 .markdown ul,
-.markdown li {
+.markdown li,
+.markdown p,
+.markdown section,
+.markdown header,
+.markdown footer {
   float: none;
   margin: 0;
   padding: 0;
@@ -45,18 +49,15 @@
 .markdown h1 {
   position: relative;
   display: inline-block;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  display: table-cell;
+  padding: 20px 0 40px;
   overflow: hidden;
 }
 .markdown h1:after {
   content: "====================================================================================================";
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 0;
-}
-.markdown h1 + * {
-  display: block;
 }
 .markdown h2,
 .markdown h3,
