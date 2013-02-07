@@ -14,23 +14,31 @@
                 <a class="right" href="http://mrcoles.com">mrcoles.com</a>
                 <h1>Markdown.css</h1>
                 <p>
-                    A peverse way to make your HTML look like
-                    <a href="http://daringfireball.net/projects/markdown/">markdown</a>,
-                    purely via CSS.
+                    CSS to make proper HTML markup look like plain-text markdown.
                 </p>
                 <p>
-                    Can’t get enough of raw markdown? Me neither.
-                    Despite looking like raw markdown, the text below actually comes from well-formed HTML.
-                    Just add <a href="markdown.css"><code>markdown.css</code></a> to your page and anything inside the class <code>markdown</code> will get “marked down.”
+                    The example below shows HTML that looks like markdown because of the
+                    <a href="https://github.com/mrcoles/markdown-css/blob/master/markdown.css"><code>markdown.css</code></a>
+                    file. Click on the other options to also see what it looks like with
+                    standard styling &amp; as raw HTML.
                 </p>
             </div>
         </div>
         <div id="content-main">
             <div class="content-inner">
-                <a id="toggle1" class="right" href="#">→ toggle markdown CSS ←</a>
-                <h1>The example</h1>
+                <div id="header">
+                    <div class="content-inner clr">
+                        <ul id="toggles" class="right">
+                            <li><a class="active" href="#markdown" onclick="return false">markdown styles</a></li>
+                            <li><a href="#standard" onclick="return false">standard styles</a></li>
+                            <li><a href="#html" onclick="return false">raw HTML</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div id="md-example" class="markdown">
                     <h1>The markdown example</h1>
+
+                    <p>This section is all HTML, not plain-text.</p>
 
                     <p>A <strong>strong tag</strong> and an <em>em tag</em> render like so.</p>
                     <p>How about a link to <a href="http://mrcoles.com">my site</a>?</p>
@@ -97,16 +105,39 @@
             </div>
         </div>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>
-            (function() {
-               function $(id) { return document.getElementById(id); }
-               function toggle() {
-                   var m = $('md-example');
-                   m.className = (m.className=='markdown'?'standard':'markdown');
-                   return false
+            $('<div>', {
+                id: 'md-html',
+                text: $('#md-example').html().replace(/ {20}/g, '')
+            }).insertAfter('#md-example').hide();
+            $('#toggles').find('a').click(function(e) {
+                e.preventDefault();
+                var $this = $(this),
+                    action = $this.attr('href').substring(1),
+                    $example = $('#md-example'),
+                    $html = $('#md-html');
+                if ('html' == action) {
+                    $example.hide();
+                    $html.show();
+                } else {
+                    $html.hide();
+                    $example.show().attr('class', action);
                 }
-                $('toggle1').onclick = toggle;
-                $('toggle2').onclick = toggle;
+                $('#toggles').find('.active').removeClass('active');
+                $this.addClass('active')
+            });
+            (function() {
+                var top = $('#header').offset().top, fixed = false;
+                $(window).on('scroll', function(e) {
+                    if (fixed && window.scrollY < top) {
+                        fixed = false;
+                        $('#header').removeClass('fixed');
+                    } else if (!fixed && window.scrollY > top) {
+                        fixed = true;
+                        $('#header').addClass('fixed');
+                    }
+                });
             })();
         </script>
     </body>
