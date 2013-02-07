@@ -22,7 +22,7 @@
                     because of the
                     <a href="https://github.com/mrcoles/markdown-css/blob/master/markdown.css"><code>markdown.css</code></a>
                     file. Click on the other options to also see what it looks like with
-                    standard styling &amp; as raw HTML.
+                    no styling &amp; as raw HTML.
                 </p>
             </div>
         </div>
@@ -30,17 +30,17 @@
             <div class="content-inner">
                 <div id="header">
                     <div class="content-inner clr">
-                        <ul id="toggles" class="right">
-                            <li><a class="active" href="#markdown" onclick="return false">markdown styles</a></li>
-                            <li><a href="#standard" onclick="return false">standard styles</a></li>
-                            <li><a href="#html" onclick="return false">raw HTML</a></li>
+                        <ul id="toggles">
+                            <li><a class="active" href="#markdown" onclick="return false">markdown.css</a></li>
+                            <li><a href="#standard" onclick="return false">no styles</a></li>
+                            <li><a href="#html" onclick="return false">&lt;HTML/&gt;</a></li>
                         </ul>
                     </div>
                 </div>
                 <div id="md-example" class="markdown">
-                    <h1>The markdown example</h1>
+                    <h1>HTML that looks like markdown</h1>
 
-                    <p>This section is all HTML, not plain-text.</p>
+                    <p>This section is all HTML, not plain-text. Inspect it with firebug or click on “raw HTML” to see the markup.</p>
 
                     <p>A <strong>strong tag</strong> and an <em>em tag</em> render like so.</p>
                     <p>How about a link to <a href="http://mrcoles.com">my site</a>?</p>
@@ -91,16 +91,10 @@
                     </p>
 
                     <p>
-                        Make sure you see what it looks like with regular HTML styling by
-                        <a id="toggle2" href="#toggle" onclick="return false">toggling the markdown CSS</a>.
-                    </p>
-
-                    <p>
                         Made by <a href="http://mrcoles.com">Peter Coles</a> /<br>
                         aka <a href="https://twitter.com/lethys">@lethys</a> /<br>
                         code on <a href="https://github.com/mrcoles/markdown-css">github</a>
                     </p>
-
                 </div>
                 <p>Get the <a href="https://github.com/mrcoles/markdown-css/blob/master/markdown.css">markdown.css</a> now!</p>
                 <br><br><br><br>
@@ -130,14 +124,15 @@
                 $this.addClass('active')
             });
             (function() {
-                var top = $('#header').offset().top, fixed = false;
-                $(window).on('scroll', function(e) {
-                    if (fixed && window.scrollY < top) {
+                var top = $('#header').offset().top, fixed = false, $window = $(window);
+                $window.on('scroll', function(e) {
+                    var scrollTop = $window.scrollTop();
+                    if (fixed && scrollTop < top) {
                         fixed = false;
-                        $('#header').removeClass('fixed');
-                    } else if (!fixed && window.scrollY > top) {
+                        $('.fixed').removeClass('fixed');
+                    } else if (!fixed && scrollTop >= top) {
                         fixed = true;
-                        $('#header').addClass('fixed');
+                        $('#header').add('#md-html').add('#md-example').addClass('fixed');
                     }
                 });
             })();

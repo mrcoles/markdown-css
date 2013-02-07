@@ -66,29 +66,22 @@ body {
 #toggles a.active {
     box-shadow: none;
 }
-.fixed #toggles a.active {
-    text-decoration: underline;
-}
-
-#md-html {
-    white-space: pre;
-    overflow: auto;
-    font-family: consolas,monaco,courier,"courier new",fixed-width;
-}
-
-.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 5;
-}
-
 .fixed #toggles a {
     border-radius: 4px;
     border: 1px solid #ccc;
     box-shadow: none;
     background: #f9f9f9;
+}
+.fixed #toggles a.active {
+    text-decoration: underline;
+}
+
+#header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
 }
 
 #md-html,
@@ -99,6 +92,16 @@ body {
     background: #d9eef2;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
 }
+
+#md-html {
+    white-space: pre;
+    overflow: auto;
+    font-family: consolas,monaco,courier,"courier new",fixed-width;
+}
+
+#md-html.fixed,
+#md-example.fixed { margin-top: 20px; }
+
 
 h1, h2 {
     font-size: 30px;
