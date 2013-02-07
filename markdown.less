@@ -18,7 +18,7 @@
         color: @color;
     }
 
-    h1, h2, h3, h4, h5, h6, pre, code, blockquote {
+    h1, h2, h3, h4, h5, h6, pre, code, blockquote, ol, ul, li {
         float: none;
         margin: 0;
         padding: 0;
@@ -30,7 +30,10 @@
 
     h1 {
         position: relative;
-        float: left; // float to make width of text
+
+        // to fix text width
+        // requires that h1s are followed by blocks
+        display: inline-block;
         padding-bottom: @line-height;
         margin-bottom: @line-height;
         overflow: hidden;
@@ -44,9 +47,7 @@
         }
     }
 
-    // siblings after h1 clear it
-    // this can fail if just plain text is put after an h1
-    h1 + * { clear: left; }
+    h1 + * { display: block; }
 
     h2, h3, h4, h5, h6 {
         position: relative;

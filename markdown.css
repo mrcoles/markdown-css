@@ -26,7 +26,10 @@
 .markdown h6,
 .markdown pre,
 .markdown code,
-.markdown blockquote {
+.markdown blockquote,
+.markdown ol,
+.markdown ul,
+.markdown li {
   float: none;
   margin: 0;
   padding: 0;
@@ -41,7 +44,7 @@
 }
 .markdown h1 {
   position: relative;
-  float: left;
+  display: inline-block;
   padding-bottom: 20px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -53,7 +56,7 @@
   left: 0;
 }
 .markdown h1 + * {
-  clear: left;
+  display: block;
 }
 .markdown h2,
 .markdown h3,
