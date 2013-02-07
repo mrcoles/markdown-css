@@ -1,7 +1,7 @@
 Markdown.css
 ============
 
-A peverse way to make your HTML look like markdown, purely via CSS.
+A perverse way to make your HTML look like markdown, purely via CSS.
 
 Use the `markdown.css` file to  make regular HTML look like plain-text markdown. No JavaScript hacks are needed. View [the demo](http://mrcoles.com/media/test/markdown-css/) to see what I’m talking about.
 
