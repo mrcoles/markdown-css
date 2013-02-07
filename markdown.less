@@ -136,6 +136,17 @@
 
     code { font-weight: 100; }
 
+    code:before,
+    code:after {
+        content: "`";
+        display: inline;
+    }
+
+    pre code:before,
+    pre code:after {
+        content: none;
+    }
+
     hr {
         position: relative;
         height: @line-height;

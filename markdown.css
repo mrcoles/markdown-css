@@ -146,6 +146,15 @@
 .markdown code {
   font-weight: 100;
 }
+.markdown code:before,
+.markdown code:after {
+  content: "`";
+  display: inline;
+}
+.markdown pre code:before,
+.markdown pre code:after {
+  content: none;
+}
 .markdown hr {
   position: relative;
   height: 20px;
