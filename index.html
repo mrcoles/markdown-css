@@ -99,13 +99,15 @@
                 <p>Get the <a href="https://github.com/mrcoles/markdown-css/blob/master/markdown.css">markdown.css</a> now!</p>
                 <p>
                     Also, try out the experimental
-                    <a href="javascript:(function()%7Bfunction%20callback()%7B(function(%24)%7Bvar%20jQuery%3D%24%3B%24('link%5Brel%3Dstylesheet%5D').add('style').remove()%3B%24('head').append('%3Clink%20rel%3D%22stylesheet%22%20href%3D%22http%3A%2F%2Fmrcoles.com%2Fmedia%2Ftest%2Fmarkdown-css%2Fmarkdown.css%22%20type%3D%22text%2Fcss%22%20%2F%3E')%3B%24('body').addClass('markdown').css(%7Bwidth%3A%20'600px'%2C%20margin%3A%20'2em%20auto'%7D)%7D)(jQuery.noConflict(true))%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.7.1%2Fjquery.min.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()">markdownify</a>
+                    <a href="javascript:(function()%7Bfunction%20callback()%7B(function(%24)%7Bvar%20jQuery%3D%24%3B%24('link%5Brel%3Dstylesheet%5D').add('style').remove()%3B%24('%5Bstyle%5D').attr('style'%2C%20'')%3B%24('head').append('%3Clink%20rel%3D%22stylesheet%22%20href%3D%22http%3A%2F%2Fmrcoles.com%2Fmedia%2Ftest%2Fmarkdown-css%2Fmarkdown.css%22%20type%3D%22text%2Fcss%22%20%2F%3E')%3B%24('body').addClass('markdown').css(%7Bwidth%3A%20'600px'%2C%20margin%3A%20'2em%20auto'%7D)%3B%24('a%20img').css(%7B'max-height'%3A%20'1em'%2C%20'max-width'%3A%20'1em'%7D)%7D)(jQuery.noConflict(true))%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.7.1%2Fjquery.min.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()">markdownify</a>
                     bookmarklet!
                     <!--
                         via http://mrcoles.com/bookmarklet/
                         $('link[rel=stylesheet]').add('style').remove();
+                        $('[style]').attr('style', '');
                         $('head').append('<link rel="stylesheet" href="http://mrcoles.com/media/test/markdown-css/markdown.css" type="text/css" />');
                         $('body').addClass('markdown').css({width: '600px', margin: '2em auto'});
+                        $('a img').css({'max-height': '1em', 'max-width': '1em'});
                       -->
                 </p>
                 <br><br><br><br>

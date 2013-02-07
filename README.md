@@ -20,5 +20,7 @@ Issues:
 Try out the experimental bookmarklet, linked at the bottom of the [demo](http://mrcoles.com/media/test/markdown-css/). Created in the [bookmarklet generator](http://mrcoles.com/bookmarklet) with the following code and a jquery include:
 
     $('link[rel=stylesheet]').add('style').remove();
+    $('[style]').attr('style', '');
     $('head').append('<link rel="stylesheet" href="http://mrcoles.com/media/test/markdown-css/markdown.css" type="text/css" />');
     $('body').addClass('markdown').css({width: '600px', margin: '2em auto'});
+    $('a img').css({'max-height': '1em', 'max-width': '1em'});
