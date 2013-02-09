@@ -44,13 +44,16 @@
 .markdown ol,
 .markdown pre,
 .markdown blockquote {
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .markdown h1 {
   position: relative;
   display: inline-block;
   display: table-cell;
+  display: -moz-inline-box;
   padding: 20px 0 40px;
+  margin-bottom: 0;
   overflow: hidden;
 }
 .markdown h1:after {
@@ -58,6 +61,9 @@
   position: absolute;
   bottom: 20px;
   left: 0;
+}
+.markdown h1 + * {
+  margin-top: 0;
 }
 .markdown h2,
 .markdown h3,

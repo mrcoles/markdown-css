@@ -25,14 +25,23 @@
     }
 
     h1, p, ul, ol, pre, blockquote {
+        margin-top: @line-height;
         margin-bottom: @line-height;
     }
 
     h1 {
         position: relative;
         display: inline-block;
-        display: table-cell; // puts on own line and limits width
+
+        // table-cell puts on own line and limits width to text
+        display: table-cell;
+
+        // firefox does not let position absolute inside table-cell
+        // so -moz-inline-box is a mediocre solution
+        display: -moz-inline-box;
+
         padding: @line-height 0 @line-height * 2;
+        margin-bottom: 0;
         overflow: hidden;
 
         &:after {
@@ -42,6 +51,10 @@
             bottom: @line-height;
             left: 0;
         }
+    }
+
+    h1 + * {
+        margin-top: 0;
     }
 
     h2, h3, h4, h5, h6 {
