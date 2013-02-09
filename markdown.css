@@ -51,7 +51,7 @@
   position: relative;
   display: inline-block;
   display: table-cell;
-  display: -moz-inline-box;
+  display: -moz-block;
   padding: 20px 0 40px;
   margin: 0;
   overflow: hidden;
