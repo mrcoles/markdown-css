@@ -176,6 +176,7 @@
   left: 0;
   font-size: 14px;
   line-height: 20px;
+  width: 100%;
   word-wrap: break-word;
 }
 @-moz-document url-prefix() {

@@ -167,12 +167,14 @@
 
         &:after {
             // 100 characters wide max
+            // older ie versions do not show the content
             content: "----------------------------------------------------------------------------------------------------";
             position: absolute;
             top: 0;
             left: 0;
             font-size: @font-size;
             line-height: @line-height;
+            width: 100%;
             word-wrap: break-word;
         }
     }
