@@ -51,7 +51,6 @@
   position: relative;
   display: inline-block;
   display: table-cell;
-  display: -moz-block;
   padding: 20px 0 40px;
   margin: 0;
   overflow: hidden;
@@ -178,4 +177,9 @@
   font-size: 14px;
   line-height: 20px;
   word-wrap: break-word;
+}
+@-moz-document url-prefix() {
+  .markdown h1 {
+    display: block;
+  }
 }

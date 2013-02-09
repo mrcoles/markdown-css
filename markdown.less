@@ -36,10 +36,6 @@
         // table-cell puts on own line and limits width to text
         display: table-cell;
 
-        // firefox does not support position absolute inside table-cell
-        // so fallback to full width block :(
-        display: -moz-block;
-
         padding: @line-height 0 @line-height * 2;
         margin: 0;
         overflow: hidden;
@@ -193,4 +189,9 @@
     //         display: inline-block;
     //     }
     // }
+}
+
+// firefox cannot put position absolute inside table-cell
+@-moz-document url-prefix() {
+    .markdown h1 { display: block; }
 }
