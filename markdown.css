@@ -53,7 +53,7 @@
   display: table-cell;
   display: -moz-inline-box;
   padding: 20px 0 40px;
-  margin-bottom: 0;
+  margin: 0;
   overflow: hidden;
 }
 .markdown h1:after {

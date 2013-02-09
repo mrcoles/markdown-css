@@ -14,7 +14,7 @@
                 <a class="right" href="http://mrcoles.com">mrcoles.com</a>
                 <h1>Markdown.css</h1>
                 <p>
-                    CSS to make proper HTML markup look like plain-text markdown.
+                    CSS to make HTML markup look like plain-text markdown.
                 </p>
                 <p>
                     The example below shows HTML that looks like
@@ -22,7 +22,7 @@
                     because of the
                     <a href="https://github.com/mrcoles/markdown-css/blob/master/markdown.css"><code>markdown.css</code></a>
                     file. Click on the other options to also see what it looks like with
-                    no styling &amp; as raw HTML.
+                    normal styling &amp; as raw HTML.
                 </p>
                 <p>
                     Also, try out the experimental
@@ -43,9 +43,10 @@
             <div class="content-inner">
                 <div id="header">
                     <div class="content-inner clr">
+                        <a class="demo" href="#" onclick="return false">« demo »</a>
                         <ul id="toggles">
                             <li><a class="active" href="#markdown" onclick="return false">markdown.css</a></li>
-                            <li><a href="#standard" onclick="return false">no styles</a></li>
+                            <li><a href="#standard" onclick="return false">normal styles</a></li>
                             <li><a href="#html" onclick="return false">&lt;HTML/&gt;</a></li>
                         </ul>
                     </div>
@@ -53,9 +54,7 @@
                 <div id="md-example" class="markdown">
                     <h1>HTML that looks like markdown</h1>
 
-                    <p>This section is all HTML that is styled by <code>markdown.css</code>, not plain-text. Inspect it with firebug or click on “raw HTML” to see the markup.</p>
-
-                    <p><em>Re-read that paragraph.</em></p>
+                    <p>When this section is styled by <code>markdown.css</code> it looks like plain-text, despite being HTML. Inspect it with firebug or click on &lt;HTML/&gt; to see the markup.</p>
 
                     <p>A <strong>strong tag</strong> and an <em>em tag</em> get styled like so.</p>
                     <p>How about a link to <a href="http://mrcoles.com">my site</a>?</p>
@@ -118,10 +117,13 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>
+            // add html div
             $('<div>', {
                 id: 'md-html',
                 text: $('#md-example').html().replace(/ {20}/g, '')
             }).insertAfter('#md-example').hide();
+
+            // toggle click handler
             $('#toggles').find('a').click(function(e) {
                 e.preventDefault();
                 var $this = $(this),
@@ -138,7 +140,9 @@
                 $('#toggles').find('.active').removeClass('active');
                 $this.addClass('active')
             });
-            (function() {
+
+            $(function() {
+                // scroll handler
                 var top = $('#header').offset().top, fixed = false, $window = $(window);
                 $window.on('scroll', function(e) {
                     var scrollTop = $window.scrollTop();
@@ -150,7 +154,49 @@
                         $('#header').add('#md-html').add('#md-example').addClass('fixed');
                     }
                 });
-            })();
+
+                // demo
+                var demoing = false, delay = 4000;
+                var $msg = $('<div>', {'class': 'message'}).appendTo('body');
+                $('.demo').click(function(e) {
+                    if (demoing) {
+                        $msg.find('a').click();
+                        return false;
+                    }
+                    demoing = true;
+                    var $toggles = $('#toggles');
+                    var steps = [
+                        {text: '1. This is some HTML code.',
+                         link: 'next →',
+                         click: 'a[href=#html]'},
+                        {text: '2. It normally renders like this…',
+                         link: 'next →',
+                         click: 'a[href=#standard]'},
+                        {text: '3. but adding markdown.css to the page makes it look like markdown!',
+                         link: 'done.',
+                         click: 'a[href=#markdown]'}
+                    ];
+                    $msg.html('<div><span></span><a href="#"></a></div>')
+                        .find('a').click(function(e) {
+                            e.preventDefault();
+                            var step = steps.shift();
+                            if (step) {
+                                $msg.find('span').text(step.text);
+                                $msg.find('a').text(step.link);
+                                $toggles.find(step.click).click();
+                                $msg.fadeIn();
+                            } else {
+                                $msg.fadeOut('normal', function() {
+                                    demoing = false;
+                                });
+                            }
+                        }).click();
+
+                    if ($window.scrollTop() < top) {
+                        $window.scrollTop(top - 1);
+                    }
+                });
+            });
         </script>
     </body>
 </html>

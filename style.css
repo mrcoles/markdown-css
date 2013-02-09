@@ -43,6 +43,11 @@ body {
 }
 .clr:after { clear: both; }
 
+.demo {
+    float: left;
+    margin: 10px 0;
+}
+
 #toggles {
     float: right;
     list-style-type: none;
@@ -66,6 +71,7 @@ body {
 #toggles a.active {
     box-shadow: none;
 }
+.fixed .demo { display: none; }
 .fixed #toggles a {
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -129,4 +135,29 @@ a:hover {
 a.right {
     float: right;
     margin: 10px 0;
+}
+
+.message {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 20px 0;
+    width: 100%;
+    background: #000;
+    background: rgba(0, 0, 0, .75);
+    color: #fff;
+    text-align: center;
+}
+.message>div {
+    width: 560px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.message span {
+    float: left;
+}
+.message a {
+    float: right;
+    color: #fffff9;
 }
