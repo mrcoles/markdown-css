@@ -36,9 +36,9 @@
         // table-cell puts on own line and limits width to text
         display: table-cell;
 
-        // firefox does not let position absolute inside table-cell
-        // so -moz-inline-box is a mediocre solution
-        display: -moz-inline-box;
+        // firefox does not support position absolute inside table-cell
+        // so fallback to full width block :(
+        display: -moz-block;
 
         padding: @line-height 0 @line-height * 2;
         margin: 0;
