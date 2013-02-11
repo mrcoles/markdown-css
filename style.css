@@ -28,7 +28,7 @@ body {
     float: none;
     position: relative;
     margin: auto;
-    width: 600px;
+    max-width: 600px;
 }
 
 .left { float: left; }
@@ -44,8 +44,12 @@ body {
 .clr:after { clear: both; }
 
 .demo {
-    float: left;
+    display: block;
     margin: 10px 0;
+}
+
+@media screen and (min-width: 600px) {
+    .demo { float: left; }
 }
 
 #toggles {
@@ -60,12 +64,18 @@ body {
 
 #toggles a {
     display: block;
-    width: 9em;
+    width: 100px;
     text-align: center;
     padding: 10px 0;
     background: #d9eef2;
     border-radius: 4px 4px 0 0;
     box-shadow: inset 0 -1px 6px rgba(0,0,0,.15);
+}
+
+@media screen and (min-width: 600px) {
+    #toggles a {
+        width: 120px;
+    }
 }
 
 #toggles a.active {
@@ -94,9 +104,16 @@ body {
 #md-example {
     position: relative;
     margin: 0 0 20px 0;
-    padding: 40px;
+    padding: 20px;
     background: #d9eef2;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (min-width: 600px) {
+    #md-html,
+    #md-example {
+        padding: 40px;
+    }
 }
 
 #md-html {
@@ -150,7 +167,7 @@ a.right {
     text-align: center;
 }
 .message>div {
-    width: 560px;
+    max-width: 560px;
     padding: 0 20px;
     margin: 0 auto;
 }
@@ -160,4 +177,19 @@ a.right {
 .message a {
     float: right;
     color: #fffff9;
+}
+
+.forkme {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    z-index: 4;
+}
+
+@media screen and (min-width: 600px) {
+    .forkme {
+        display: block;
+    }
 }

@@ -1,3 +1,6 @@
+.markdown {
+  word-wrap: break-word;
+}
 .markdown,
 .markdown h1,
 .markdown h2,
