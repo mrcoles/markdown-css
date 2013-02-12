@@ -47,9 +47,9 @@
                     <div class="content-inner clr">
                         <a class="demo" href="#" onclick="return false">« demo »</a>
                         <ul id="toggles">
-                            <li><a class="active" href="#markdown" onclick="return false">markdown.css</a></li>
-                            <li><a href="#standard" onclick="return false">normal styles</a></li>
                             <li><a href="#html" onclick="return false">&lt;HTML/&gt;</a></li>
+                            <li><a href="#standard" onclick="return false">normal styles</a></li>
+                            <li><a class="active" href="#markdown" onclick="return false">markdown.css</a></li>
                         </ul>
                     </div>
                 </div>
@@ -162,29 +162,40 @@
                 var $msg = $('<div>', {'class': 'message'}).appendTo('body');
                 $('.demo').click(function(e) {
                     if (demoing) {
-                        $msg.find('a').click();
+                        $msg.find('a.next').click();
                         return false;
                     }
                     demoing = true;
                     var $toggles = $('#toggles');
                     var steps = [
-                        {text: '1. This is some HTML code.',
+                        {text: '1. This is some HTML code ↑',
                          link: 'next →',
                          click: 'a[href=#html]'},
-                        {text: '2. It normally renders like this…',
+                        {text: '2. It normally renders like this ↑',
+                         prevLink: '← prev',
                          link: 'next →',
                          click: 'a[href=#standard]'},
                         {text: '3. but adding markdown.css to the page makes it look like markdown!',
+                         prevLink: '← prev',
                          link: 'done.',
                          click: 'a[href=#markdown]'}
                     ];
-                    $msg.html('<div><span></span><a href="#"></a></div>')
+                    var curStep = -1;
+                    $msg.html('<div><span></span><a class="next" href="#"></a><a class="prev" href="#"></a></div>')
                         .find('a').click(function(e) {
                             e.preventDefault();
-                            var step = steps.shift();
+                            var next = $(this).hasClass('next');
+                            curStep += next ? 1 : -1;
+                            var step = steps[curStep];
+				console.log('step?', curStep, step, 'next?', next);
                             if (step) {
                                 $msg.find('span').text(step.text);
-                                $msg.find('a').text(step.link);
+                                $msg.find('a.next').text(step.link);
+                                if (step.prevLink) {
+                                    $msg.find('a.prev').text(step.prevLink).show()
+                                } else {
+                                    $msg.find('a.prev').hide();
+                                }
                                 $toggles.find(step.click).click();
                                 $msg.fadeIn();
                             } else {
@@ -192,7 +203,8 @@
                                     demoing = false;
                                 });
                             }
-                        }).click();
+                        });
+                    $msg.find('a.next').click();
 
                     if ($window.scrollTop() < top) {
                         $window.scrollTop(top - 1);

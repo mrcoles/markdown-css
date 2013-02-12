@@ -176,6 +176,7 @@ a.right {
 }
 .message a {
     float: right;
+    margin-left: 10px;
     color: #fffff9;
 }
 
