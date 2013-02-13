@@ -182,6 +182,14 @@
   width: 100%;
   word-wrap: break-word;
 }
+.markdown img {
+  display: inline-block;
+  content: "";
+}
+.markdown img:after {
+  content: "![" attr(alt) "](" attr(src) ")";
+  display: inline-block;
+}
 @-moz-document url-prefix() {
   .markdown h1 {
     display: block;

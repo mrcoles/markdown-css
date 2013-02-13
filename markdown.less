@@ -188,18 +188,15 @@
         }
     }
 
-    // only opera support before and after with img :(
-    // img {
-    //     display: inline-block;
-    //     &:before {
-    //         content: ~'"![" attr(alt)';
-    //         display: inline-block;
-    //     }
-    //     &:after {
-    //         content: ~'"](" attr(src) ")"';
-    //         display: inline-block;
-    //     }
-    // }
+    img {
+        display: inline-block;
+        content: "";
+
+        &:after {
+            content: ~'"![" attr(alt) "](" attr(src) ")"';
+            display: inline-block;
+        }
+    }
 }
 
 // firefox cannot put position absolute inside table-cell
