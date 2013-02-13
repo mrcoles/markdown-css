@@ -43,6 +43,8 @@
         margin: 0;
         overflow: hidden;
 
+        // `h1:after` creates something as the last child of the h1,
+        // likewise `:before` creates something as the first child
         &:after {
             // 100 characters wide max
             content: "====================================================================================================";
@@ -52,6 +54,8 @@
         }
     }
 
+    // this matches the next sibling after an h1 (apart from a pure text node)
+    // since h1s use padding instead of margin, I did not want to double pad
     h1 + * {
         margin-top: 0;
     }
@@ -111,6 +115,8 @@
 
         &:after {
             // 100 lines max
+            // the \A becomes a newline character and `white-space: pre`
+            // makes it act like a <br>
             content: ">\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>\A>";
             white-space: pre;
             position: absolute;
