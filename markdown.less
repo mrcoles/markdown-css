@@ -101,8 +101,13 @@
     ul>li:after {
         content: @ul-tick;
     }
+    ol{
+        // Auto-increments the numbering for ordered lists.
+        counter-reset:ol; 
+    }
     ol>li:after {
-        content: "1.";
+        content: counter(ol) ".";
+        counter-increment:ol; 
     }
 
     pre {
