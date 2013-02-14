@@ -108,8 +108,12 @@
 .markdown ul > li:after {
   content: "*";
 }
+.markdown ol {
+  counter-reset: ol;
+}
 .markdown ol > li:after {
-  content: "1.";
+  content: counter(ol) ".";
+  counter-increment: ol;
 }
 .markdown pre {
   margin-left: 36px;
