@@ -101,13 +101,14 @@
     ul>li:after {
         content: @ul-tick;
     }
-    ol{
+
+    ol {
         // Auto-increments the numbering for ordered lists.
-        counter-reset:ol; 
+        counter-reset:ol;
     }
     ol>li:after {
         content: counter(ol) ".";
-        counter-increment:ol; 
+        counter-increment: ol;
     }
 
     pre {
@@ -210,4 +211,10 @@
 // firefox cannot put position absolute inside table-cell
 @-moz-document url-prefix() {
     .markdown h1 { display: block; }
+}
+
+.markdown-ones {
+    ol>li:after {
+        content: "1.";
+    }
 }

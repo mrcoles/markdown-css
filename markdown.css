@@ -191,3 +191,6 @@
     display: block;
   }
 }
+.markdown-ones ol > li:after {
+  content: "1.";
+}
