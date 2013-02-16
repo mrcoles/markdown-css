@@ -4,7 +4,9 @@
     @font-size: 14px;
     @line-height: 20px;
     @color: #333;
-    @four-space: 36px;
+    @four-space: 34px;
+    @four-space-css3: ~"4ch"; // some browsers support char spacing
+    @two-space-css3: ~"2ch"; // less does not support ch very well
     @ul-tick: "*";
     @strong-char: "__";
     @em-char: "*";
@@ -90,6 +92,7 @@
         position: relative;
         display: block;
         padding-left: @four-space;
+        padding-left: @four-space-css3;
     }
 
     li:after {
@@ -113,10 +116,12 @@
 
     pre {
         margin-left: @four-space;
+        padding-left: @four-space-css3;
     }
     blockquote {
         position: relative;
         padding-left: @four-space/2;
+        padding-left: @two-space-css3;
         overflow: hidden;
 
         &:after {

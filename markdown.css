@@ -98,7 +98,8 @@
 .markdown li {
   position: relative;
   display: block;
-  padding-left: 36px;
+  padding-left: 34px;
+  padding-left: 4ch;
 }
 .markdown li:after {
   position: absolute;
@@ -116,11 +117,13 @@
   counter-increment: ol;
 }
 .markdown pre {
-  margin-left: 36px;
+  margin-left: 34px;
+  padding-left: 4ch;
 }
 .markdown blockquote {
   position: relative;
-  padding-left: 18px;
+  padding-left: 17px;
+  padding-left: 2ch;
   overflow: hidden;
 }
 .markdown blockquote:after {
