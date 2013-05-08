@@ -95,13 +95,13 @@
         padding-left: @four-space-css3;
     }
 
-    li:after {
+    li:before {
         position: absolute;
         top: 0;
         left: 0;
     }
 
-    ul>li:after {
+    ul>li:before {
         content: @ul-tick;
     }
 
@@ -109,7 +109,7 @@
         // Auto-increments the numbering for ordered lists.
         counter-reset:ol;
     }
-    ol>li:after {
+    ol>li:before {
         content: counter(ol) ".";
         counter-increment: ol;
     }
