@@ -12,7 +12,7 @@ This is built to support all of the standard [markdown elements](http://daringfi
 Issues:
 
 *   repeats for h1, hr, and blockquote use characters that are repeated 100 times, so width greater than 100 characters or a blockquote more than a 100 lines will not be perfect
-*   psuedo elements (:before, :after) don’t work with images (except opera), so I didn’t support making images look like markdown
+*   pseudo elements (:before, :after) don’t work with images (except opera), so I didn’t support making images look like markdown
 
 
 ### Bookmarklet
