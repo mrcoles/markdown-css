@@ -18,7 +18,7 @@
   line-height: 20px;
   font-weight: normal;
   font-style: normal;
-  font-family: consolas, monaco, courier, "courier new", fixed-width;
+  font-family: consolas, monaco, courier, "courier new", monospace;
   color: #333333;
 }
 .markdown h1,
@@ -118,7 +118,7 @@
 }
 .markdown pre {
   margin-left: 34px;
-  padding-left: 4ch;
+  margin-left: 4ch;
 }
 .markdown blockquote {
   position: relative;
