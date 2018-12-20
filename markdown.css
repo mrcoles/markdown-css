@@ -101,18 +101,18 @@
   padding-left: 34px;
   padding-left: 4ch;
 }
-.markdown li:after {
+.markdown li:before {
   position: absolute;
   top: 0;
   left: 0;
 }
-.markdown ul > li:after {
+.markdown ul > li:before {
   content: "*";
 }
 .markdown ol {
   counter-reset: ol;
 }
-.markdown ol > li:after {
+.markdown ol > li:before {
   content: counter(ol) ".";
   counter-increment: ol;
 }
